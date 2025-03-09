@@ -11,12 +11,12 @@ class Solution {
         int formed=0;
         int required=tcount.size();
         int l=0,r=0;
-        int minLeft=0;
         int minLen=Integer.MAX_VALUE;
+        int minLeft=0;
         while(r<s.length()){
             char c=s.charAt(r);
             windowCount.put(c,windowCount.getOrDefault(c,0)+1);
-            if(tcount.containsKey(c)&& windowCount.get(c).intValue()==tcount.get(c).intValue()){
+            if(tcount.containsKey(c) && windowCount.get(c).intValue()==tcount.get(c).intValue()){
                 formed++;
             }
             while(required==formed){
@@ -34,6 +34,5 @@ class Solution {
             r++;
         }
         return (minLen==Integer.MAX_VALUE)?"":s.substring(minLeft,minLeft+minLen);
-        
     }
 }
