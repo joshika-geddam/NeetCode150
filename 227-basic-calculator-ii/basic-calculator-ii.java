@@ -8,7 +8,7 @@ class Solution {
             if(Character.isDigit(c)){
                 number=number*10+(c-'0');
             }
-            if(!Character.isDigit(c) && c!=' ' ||i==s.length()-1){
+            if(!Character.isDigit(c) && c!=' ' || i==s.length()-1){
                 if(curr=='+'){
                     stack.push(number);
                 }
@@ -22,9 +22,8 @@ class Solution {
                     stack.push(stack.pop() / number);
                 }
                 curr=c;
-            number=0;
+                number=0;
             }
-            
         }
         int res=0;
         for(int num:stack){
