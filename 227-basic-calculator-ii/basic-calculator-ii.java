@@ -19,16 +19,17 @@ class Solution {
                     stack.push(stack.pop() * number);
                 }
                 else if(curr=='/'){
-                    stack.push(stack.pop() / number);
+                    stack.push(stack.pop() /number);
                 }
                 curr=c;
                 number=0;
+
             }
         }
-        int res=0;
+        int result=0;
         for(int num:stack){
-            res+=num;
+            result+=num;
         }
-        return res;
+        return result;
     }
 }
