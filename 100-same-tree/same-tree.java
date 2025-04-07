@@ -27,12 +27,13 @@ class Solution {
             if(first==null || second==null || first.val!=second.val){
                 return false;
             }
-            queue.add(first.left);
-            queue.add(second.left);
-            queue.add(first.right);
-            queue.add(second.right); 
+            else{
+                queue.add(first.left);
+                queue.add(second.left);
+                queue.add(first.right);
+                queue.add(second.right);
+            }
         }
         return true;
-        
     }
 }
