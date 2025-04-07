@@ -18,17 +18,16 @@ class Solution {
         if(root==null){
             return true;
         }
-        return height(root)!=-1;
-        
+        return check(root)!=-1;
     }
-    public int height(TreeNode node){
-        if(node==null){
+    public int check(TreeNode root){
+        if(root==null){
             return 0;
         }
-        int left=height(node.left);
-        int right=height(node.right);
+        int left=check(root.left);
+        int right=check(root.right);
         int bf=Math.abs(left-right);
-        if(bf>1 || left==-1 ||right==-1){
+        if(bf>1 || left==-1 || right==-1){
             return -1;
         }
         return 1+Math.max(left,right);
