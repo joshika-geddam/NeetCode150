@@ -19,25 +19,24 @@ class Solution {
             return 0;
         }
         Queue<TreeNode> queue=new LinkedList<>();
-        int levelCount=0;
         queue.add(root);
+        int level=0;
         while(true){
             int size=queue.size();
             if(size==0){
-                return levelCount;
+                return level;
             }
             while(size>0){
-                TreeNode treeNode=queue.poll();
-                if(treeNode.left!=null){
-                    queue.add(treeNode.left);
+                TreeNode node=queue.poll();
+                if(node.left!=null){
+                    queue.add(node.left);
                 }
-                if(treeNode.right!=null){
-                    queue.add(treeNode.right);
+                if(node.right!=null){
+                    queue.add(node.right);
                 }
                 size--;
             }
-            levelCount++;
-
+            level++;
         }
     }
 }
