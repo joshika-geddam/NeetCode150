@@ -10,5 +10,6 @@ class Solution {
             map.put(num,i);
         }
         return new int[]{};
+        
     }
 }
