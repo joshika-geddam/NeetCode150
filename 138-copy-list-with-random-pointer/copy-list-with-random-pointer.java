@@ -18,34 +18,32 @@ class Solution {
         if(head==null){
             return null;
         }
-        Node curr=head;
-        while(curr!=null){
-        Node newNode=new Node(curr.val);
-        newNode.next=curr.next;
-        curr.next=newNode;
-        curr=newNode.next;
+        Node current=head;
+        while(current!=null){
+            Node newNode=new Node(current.val);
+            newNode.next=current.next;
+            current.next=newNode;
+            current=newNode.next;
         }
-        curr=head;
-        while(curr!=null){
-            if(curr.random!=null){
-                curr.next.random=curr.random.next;
+        current=head;
+        while(current!=null){
+            if(current.random!=null){
+                current.next.random=current.random.next;
             }
-            curr=curr.next.next;
+            current=current.next.next;
         }
-        curr=head;
-        Node newHead=head.next;
+        current=head;
+        Node newHead=current.next;
         Node newCurr=newHead;
-        while(curr!=null){
-            curr.next=newCurr.next;
-            curr=curr.next;
-            if(curr!=null){
-                newCurr.next=curr.next;
+        while(current!=null){
+            current.next=newCurr.next;
+            current=current.next;
+            if(current!=null){
+                newCurr.next=current.next;
                 newCurr=newCurr.next;
             }
-
         }
         return newHead;
-
         
     }
 }
