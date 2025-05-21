@@ -7,7 +7,7 @@ class Solution {
         while(end<s.length()){
             if(!list.contains(s.charAt(end))){
                 list.add(s.charAt(end));
-                maxLen=Math.max(list.size(),maxLen);
+                maxLen=Math.max(maxLen,list.size());
                 end++;
             }
             else{
