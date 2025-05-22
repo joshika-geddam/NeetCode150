@@ -27,7 +27,7 @@ class Solution {
         int left=check(root.left);
         int right=check(root.right);
         int bf=Math.abs(left-right);
-        if(bf>1 || left==-1 || right==-1){
+        if(left==-1||right==-1||bf>1){
             return -1;
         }
         return 1+Math.max(left,right);
