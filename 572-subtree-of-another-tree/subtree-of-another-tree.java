@@ -15,19 +15,18 @@
  */
 class Solution {
     public boolean isSubtree(TreeNode root, TreeNode subRoot) {
-        String fullTree=preOrderTraversal(root);
-        String subTree=preOrderTraversal(subRoot);
+        String fullTree=pre(root);
+        String subTree=pre(subRoot);
         return fullTree.contains(subTree);
     }
-    public String preOrderTraversal(TreeNode node){
+    public String pre(TreeNode node){
         if(node==null){
             return "null";
         }
         StringBuilder sb=new StringBuilder("^");
         sb.append(node.val);
-        sb.append(preOrderTraversal(node.left));
-        sb.append(preOrderTraversal(node.right));
+        sb.append(pre(node.left));
+        sb.append(pre(node.right));
         return sb.toString();
-
     }
 }
