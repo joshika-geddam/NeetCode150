@@ -15,10 +15,13 @@
  */
 class Solution {
     public boolean isValidBST(TreeNode root) {
+        if(root==null){
+            return true;
+        }
         List<Integer> list=new ArrayList<>();
-        helper(root,list);
-        boolean isValid=true;
+        inorder(list,root);
         int prev=list.get(0);
+        boolean isValid=true;
         for(int i=1;i<list.size();i++){
             if(list.get(i)<=prev){
                 return false;
@@ -28,12 +31,12 @@ class Solution {
         return isValid;
         
     }
-    public void helper(TreeNode root,List<Integer> list){
+    public void inorder(List<Integer> list,TreeNode root){
         if(root==null){
             return;
         }
-        helper(root.left,list);
+        inorder(list,root.left);
         list.add(root.val);
-        helper(root.right,list);
+        inorder(list,root.right);
     }
 }
