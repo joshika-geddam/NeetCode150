@@ -24,7 +24,7 @@ class Solution {
             if(first==null && second==null){
                 continue;
             }
-            if(first==null || second==null || first.val!=second.val){
+            else if(first==null||second==null||first.val!=second.val){
                 return false;
             }
             else{
@@ -35,5 +35,6 @@ class Solution {
             }
         }
         return true;
+
     }
 }
