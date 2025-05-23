@@ -1,8 +1,8 @@
 class Solution {
     public List<String> letterCombinations(String digits) {
-        List<String> list=new ArrayList<>();
+        List<String> result=new ArrayList<>();
         if(digits.isEmpty()){
-            return list;
+            return result;
         }
         HashMap<Character,String> map=new HashMap<>();
         map.put('2',"abc");
@@ -13,16 +13,16 @@ class Solution {
         map.put('7',"pqrs");
         map.put('8',"tuv");
         map.put('9',"wxyz");
-        backtrack(0,"",digits,map,list);
-        return list;
+        backtrack(digits,result,map,"",0);
+        return result;
     }
-    public void backtrack(int index,String current,String digits,HashMap<Character,String> map,List<String> list){
-        if(current.length()==digits.length()){
-            list.add(current);
+    public void backtrack(String digits,List<String> result,HashMap<Character,String> map,String current,int index){
+        if(index==digits.length()){
+            result.add(current);
             return;
         }
         for(char c:map.get(digits.charAt(index)).toCharArray()){
-            backtrack(index+1,current+c,digits,map,list);
+            backtrack(digits,result,map,current+c,index+1);
         }
     }
 }
