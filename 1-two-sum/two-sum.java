@@ -8,6 +8,7 @@ class Solution {
                 return new int[]{map.get(diff),i};
             }
             map.put(num,i);
+            
         }
         return new int[]{};
         
