@@ -1,22 +1,24 @@
 class Solution {
-    boolean[][] seen;
+    boolean[][] visited;
     public int maxAreaOfIsland(int[][] grid) {
-        int maxArea=0;
-        int rows=grid.length;
+        int row=grid.length;
         int col=grid[0].length;
-        seen=new boolean[rows][col];
-        for(int i=0;i<rows;i++){
+        int maxArea=0;
+        visited=new boolean[row][col];
+        for(int i=0;i<row;i++){
             for(int j=0;j<col;j++){
-                maxArea=Math.max(maxArea,area(i,j,grid));
+                if(grid[i][j]==1){
+                    maxArea=Math.max(maxArea,area(i,j,grid));
+                }
             }
         }
         return maxArea;
     }
     public int area(int i,int j,int[][] grid){
-        if(i<0||i>=grid.length||j<0||j>=grid[0].length||seen[i][j]||grid[i][j]==0){
+        if(i<0||j<0||i>=grid.length||j>=grid[0].length||grid[i][j]!=1||visited[i][j]){
             return 0;
         }
-        seen[i][j]=true;
-        return(1+area(i+1,j,grid)+area(i-1,j,grid)+area(i,j+1,grid)+area(i,j-1,grid));
+        visited[i][j]=true;
+        return 1+(area(i+1,j,grid)+area(i-1,j,grid)+area(i,j+1,grid)+area(i,j-1,grid));
     }
 }
