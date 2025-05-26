@@ -1,14 +1,14 @@
 class Solution {
     public int[] findOrder(int numCourses, int[][] prerequisites) {
         HashMap<Integer,List<Integer>> map=new HashMap<>();
-        for(int pair[]:prerequisites){
+        for(int[] pair:prerequisites){
             map.computeIfAbsent(pair[0],k->new ArrayList<>()).add(pair[1]);
         }
-        List<Integer> output=new ArrayList<>();
         HashSet<Integer> cycle=new HashSet<>();
         HashSet<Integer> visit=new HashSet<>();
+        List<Integer> output=new ArrayList<>();
         for(int course=0;course<numCourses;course++){
-            if(!dfs(course,map,cycle,visit,output)){
+            if(!dfs(course,cycle,visit,output,map)){
                 return new int[0];
             }
         }
@@ -16,9 +16,9 @@ class Solution {
         for(int i=0;i<numCourses;i++){
             result[i]=output.get(i);
         }
-        return result;   
+        return result;
     }
-    public boolean dfs(int course,HashMap<Integer,List<Integer>> map,HashSet<Integer> cycle,HashSet<Integer> visit,List<Integer> output){
+    public boolean dfs(int course,HashSet<Integer> cycle,HashSet<Integer> visit, List<Integer> output,HashMap<Integer,List<Integer>> map){
         if(cycle.contains(course)){
             return false;
         }
@@ -27,7 +27,7 @@ class Solution {
         }
         cycle.add(course);
         for(int pre:map.getOrDefault(course,Collections.emptyList())){
-            if(!dfs(pre,map,cycle,visit,output)){
+            if(!dfs(pre,cycle,visit,output,map)){
                 return false;
             }
         }
