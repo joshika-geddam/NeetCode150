@@ -1,5 +1,5 @@
 public class TrieNode{
-    TrieNode[] children;
+    TrieNode children[];
     boolean endOfWord;
     public TrieNode(){
         this.children=new TrieNode[26];
@@ -33,7 +33,7 @@ class WordDictionary {
             char c=word.charAt(i);
             if(c=='.'){
                 for(TrieNode child:current.children){
-                    if(child!= null&&dfs(child,i+1,word)){
+                    if(child!=null && dfs(child,i+1,word)){
                         return true;
                     }
                 }
@@ -43,7 +43,7 @@ class WordDictionary {
                 if(current.children[c-'a']==null){
                     return false;
                 }
-                current=current.children[c-'a'];
+                 current=current.children[c-'a'];
             }
         }
         return current.endOfWord;
