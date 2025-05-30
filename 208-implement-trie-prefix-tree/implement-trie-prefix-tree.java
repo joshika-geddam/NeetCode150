@@ -9,7 +9,7 @@ public class TrieNode{
 class Trie {
     TrieNode root;
     public Trie() {
-        root=new TrieNode(); 
+        root=new TrieNode();
     }
     
     public void insert(String word) {
@@ -21,6 +21,7 @@ class Trie {
             current=current.children.get(c);
         }
         current.endOfWord=true;
+        
     }
     
     public boolean search(String word) {
@@ -32,6 +33,8 @@ class Trie {
             current=current.children.get(c);
         }
         return current.endOfWord;
+
+
         
     }
     
@@ -44,6 +47,7 @@ class Trie {
             current=current.children.get(c);
         }
         return true;
+        
     }
 }
 
