@@ -1,16 +1,17 @@
 public class TrieNode{
-    HashMap<Character,TrieNode> children=new HashMap<>();
-    boolean endOfWord=false;
+    HashMap<Character,TrieNode> children;
+    boolean endOfWord;
     public TrieNode(){
         this.children=new HashMap<>();
         this.endOfWord=false;
     }
 }
-class Trie{
+class Trie {
     TrieNode root;
     public Trie() {
         root=new TrieNode(); 
     }
+    
     public void insert(String word) {
         TrieNode current=root;
         for(char c:word.toCharArray()){
@@ -20,7 +21,6 @@ class Trie{
             current=current.children.get(c);
         }
         current.endOfWord=true;
-        
     }
     
     public boolean search(String word) {
