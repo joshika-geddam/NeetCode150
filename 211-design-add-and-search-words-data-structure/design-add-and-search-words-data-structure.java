@@ -21,7 +21,9 @@ class WordDictionary {
             current=current.children[c-'a'];
         }
         current.endOfWord=true;
+        
     }
+    
     public boolean search(String word) {
         return dfs(root,0,word);
     }
@@ -31,7 +33,7 @@ class WordDictionary {
             char c=word.charAt(i);
             if(c=='.'){
                 for(TrieNode child:current.children){
-                    if(child!=null && dfs(child,i+1,word)){
+                    if(child!= null&&dfs(child,i+1,word)){
                         return true;
                     }
                 }
