@@ -1,6 +1,6 @@
 class Solution {
     public String multiply(String num1, String num2) {
-        if(num1.equals("0") || num2.equals("0")){
+        if(num1.equals("0")||num2.equals("0")){
             return "0";
         }
         int[] result=new int[num1.length()+num2.length()];
@@ -19,5 +19,6 @@ class Solution {
             }
         }
         return sb.toString();
+        
     }
 }
