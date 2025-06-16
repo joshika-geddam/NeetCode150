@@ -1,8 +1,8 @@
 class Solution {
     public int jump(int[] nums) {
-        int destination=nums.length-1;
         int coverage=0;
         int totalJumps=0;
+        int destination=nums.length-1;
         int lastIndex=0;
         if(nums.length==1){
             return 0;
@@ -12,12 +12,12 @@ class Solution {
             if(i==lastIndex){
                 lastIndex=coverage;
                 totalJumps++;
-            if(coverage>=destination){
-                return totalJumps;
+                if(coverage>=destination){
+                    return totalJumps;
+                }
             }
         }
-        }
-        return totalJumps;
-        
+                            return totalJumps;
+
     }
 }
