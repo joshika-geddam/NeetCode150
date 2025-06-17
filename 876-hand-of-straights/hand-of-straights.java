@@ -11,17 +11,17 @@ class Solution {
             int start=map.firstKey();
             int count=map.get(start);
             for(int i=0;i<groupSize;i++){
-                int currentIndex=i+start;
-                if(map.getOrDefault(currentIndex,0)<count){
+                int current=i+start;
+                if(map.getOrDefault(current,0)<count){
                     return false;
                 }
-                map.put(currentIndex,map.get(currentIndex)-count);
-                if(map.get(currentIndex)==0){
-                    map.remove(currentIndex);
+                map.put(current,map.get(current)-count);
+                if(map.get(current)==0){
+                    map.remove(current);
                 }
+
             }
         }
         return true;
-        
     }
 }
