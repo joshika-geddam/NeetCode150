@@ -8,13 +8,14 @@ class Solution {
         }
         Arrays.sort(cars,(a,b)->Double.compare(b[0],a[0]));
         int count=0;
-        double prev=0;
+        double prev=0.0;
         for(double[] car:cars){
-            if(car[1]>prev){
+            if(prev<car[1]){
                 prev=car[1];
                 count++;
             }
         }
         return count;
+        
     }
 }
