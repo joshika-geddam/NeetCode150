@@ -10,35 +10,34 @@
  */
 class Solution {
     public ListNode mergeKLists(ListNode[] lists) {
-        if(lists==null||lists.length==0){
+        if(lists.length==0 || lists==null){
             return null;
         }
         return mergeKLists(lists,0,lists.length-1);
     }
-    public ListNode mergeKLists(ListNode[] lists,int left,int right){
-        if(left==right){
-            return lists[left];
+    public ListNode mergeKLists(ListNode[] lists,int start,int end){
+        if(start==end){
+            return lists[start];
         }
-        int mid=left+(right-left)/2;
-        ListNode l1=mergeKLists(lists,left,mid);
-        ListNode l2=mergeKLists(lists,mid+1,right);
+        int mid=start+(end-start)/2;
+        ListNode l1=mergeKLists(lists,start,mid);
+        ListNode l2=mergeKLists(lists,mid+1,end);
         return merge(l1,l2);
     }
     public ListNode merge(ListNode l1,ListNode l2){
-        ListNode dummy=new ListNode(-1);
+        ListNode dummy=new ListNode(0);
         ListNode ptr=dummy;
         while(l1!=null && l2!=null){
-        if(l1.val<=l2.val){
-            dummy.next=l1;
-            l1=l1.next;
-        }  
-        else{
-            dummy.next=l2;
-            l2=l2.next;
-        } 
-        dummy=dummy.next;
-        } 
-
+            if(l1.val<=l2.val){
+                dummy.next=l1;
+                l1=l1.next;
+            }
+            else{
+                dummy.next=l2;
+                l2=l2.next;
+            }
+            dummy=dummy.next;
+        }
         if(l1==null){
             dummy.next=l2;
         }
@@ -46,6 +45,5 @@ class Solution {
             dummy.next=l1;
         }
         return ptr.next;
-
     }
 }
