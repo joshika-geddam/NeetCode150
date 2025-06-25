@@ -15,12 +15,13 @@
  */
 class Solution {
     public int diameterOfBinaryTree(TreeNode root) {
+        if(root==null){
+            return 0;
+        }
         Stack<TreeNode> stack=new Stack<>();
         HashMap<TreeNode,Integer> map=new HashMap<>();
+        stack.push(root);
         int diameter=0;
-        if(root!=null){
-            stack.push(root);
-        }
         while(!stack.isEmpty()){
             TreeNode node=stack.peek();
             if(node.left!=null && !map.containsKey(node.left)){
@@ -33,11 +34,10 @@ class Solution {
                 stack.pop();
                 int left=map.getOrDefault(node.left,0);
                 int right=map.getOrDefault(node.right,0);
-                map.put(node,1+Math.max(left,right));
+                map.put(node,Math.max(left,right)+1);
                 diameter=Math.max(diameter,left+right);
             }
-        }
-        return diameter;
-        
+        }      
+        return diameter;  
     }
 }
