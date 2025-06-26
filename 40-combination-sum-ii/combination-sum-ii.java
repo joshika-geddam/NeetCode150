@@ -4,23 +4,22 @@ class Solution {
         List<Integer> current=new ArrayList<>();
         Arrays.sort(nums);
         backtrack(result,current,0,nums,target);
-        return result; 
+        return result;
     }
     public void backtrack(List<List<Integer>> result,List<Integer> current,int index,int[] nums,int target){
-        if(target==0){
-            result.add(new ArrayList<>(current));
-            return;
-        }
         if(target<0){
             return;
+        }
+        if(target==0){
+            result.add(new ArrayList<>(current));
         }
         for(int i=index;i<nums.length;i++){
             if(i>index && nums[i]==nums[i-1]){
                 continue;
             }
-                current.add(nums[i]);
-                backtrack(result,current,i+1,nums,target-nums[i]);
-                current.remove(current.size()-1);
+            current.add(nums[i]);
+            backtrack(result,current,i+1,nums,target-nums[i]);
+            current.remove(current.size()-1);
         }
     }
 }
