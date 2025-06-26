@@ -1,10 +1,10 @@
 class Solution {
     public List<String> letterCombinations(String digits) {
+        HashMap<Character,String> map=new HashMap<>();
         List<String> result=new ArrayList<>();
         if(digits.isEmpty()){
             return result;
         }
-        HashMap<Character,String> map=new HashMap<>();
         map.put('2',"abc");
         map.put('3',"def");
         map.put('4',"ghi");
@@ -13,16 +13,16 @@ class Solution {
         map.put('7',"pqrs");
         map.put('8',"tuv");
         map.put('9',"wxyz");
-        backtrack(digits,result,map,"",0);
+        backtrack(result,map,digits,0,"");
         return result;
     }
-    public void backtrack(String digits,List<String> result,HashMap<Character,String> map,String current,int index){
+    public void backtrack(List<String> result,HashMap<Character,String> map,String digits,int index,String current){
         if(index==digits.length()){
-            result.add(current);
+            result.add((current));
             return;
         }
         for(char c:map.get(digits.charAt(index)).toCharArray()){
-            backtrack(digits,result,map,current+c,index+1);
+            backtrack(result,map,digits,index+1,current+c);
         }
     }
 }
