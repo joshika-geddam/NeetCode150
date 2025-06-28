@@ -23,14 +23,14 @@ class Solution {
                 if(board[i][j]=='O'){
                     board[i][j]='X';
                 }
-                if(board[i][j]=='T'){
+                else if(board[i][j]=='T'){
                     board[i][j]='O';
                 }
             }
         }
     }
     public void dfs(int i,int j,char[][] board){
-        if(i<0||j<0||i>=board.length||j>=board[0].length||board[i][j]!='O'){
+        if(i<0||i>=board.length||j<0||j>=board[0].length||board[i][j]!='O'){
             return;
         }
         board[i][j]='T';
@@ -39,5 +39,4 @@ class Solution {
         dfs(i,j+1,board);
         dfs(i,j-1,board);
     }
-
 }
