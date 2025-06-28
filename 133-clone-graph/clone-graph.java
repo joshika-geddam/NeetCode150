@@ -33,6 +33,5 @@ class Solution {
             clone.neighbors.add(cloneGraph(neighbor));
         }
         return clone;
-        
     }
 }
