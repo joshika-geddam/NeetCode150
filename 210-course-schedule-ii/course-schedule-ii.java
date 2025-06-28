@@ -7,18 +7,18 @@ class Solution {
         HashSet<Integer> cycle=new HashSet<>();
         HashSet<Integer> visit=new HashSet<>();
         List<Integer> output=new ArrayList<>();
+         int[] result=new int[numCourses];
         for(int course=0;course<numCourses;course++){
             if(!dfs(course,cycle,visit,output,map)){
                 return new int[0];
             }
         }
-        int[] result=new int[numCourses];
-        for(int i=0;i<numCourses;i++){
-            result[i]=output.get(i);
-        }
+            for(int i=0;i<numCourses;i++){
+                result[i]=output.get(i);
+            }
         return result;
     }
-    public boolean dfs(int course,HashSet<Integer> cycle,HashSet<Integer> visit, List<Integer> output,HashMap<Integer,List<Integer>> map){
+    public boolean dfs(int course,HashSet<Integer> cycle,HashSet<Integer> visit,List<Integer> output,HashMap<Integer,List<Integer>> map){
         if(cycle.contains(course)){
             return false;
         }
@@ -31,9 +31,11 @@ class Solution {
                 return false;
             }
         }
-        cycle.remove(course);
+            cycle.remove(course);
         visit.add(course);
         output.add(course);
         return true;
+        
+        
     }
 }
