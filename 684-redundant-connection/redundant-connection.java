@@ -15,9 +15,9 @@ class Solution {
                 return edge;
             }
         }
-        return new int[]{};
+        return new int[0];
     }
-    public boolean dfs(int node,int parent,List<List<Integer>> adj, boolean[] visit){
+    public boolean dfs(int node,int parent,List<List<Integer>> adj,boolean[] visit){
         if(visit[node]){
             return true;
         }
@@ -32,5 +32,4 @@ class Solution {
         }
         return false;
     }
-
 }
