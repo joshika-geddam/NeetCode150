@@ -9,12 +9,11 @@ class Solution {
                 if(nums[l]==0){
                     count--;
                 }
-                    l++;
+                l++;
             }
             maxLen=Math.max(maxLen,r-l+1);
             r++;
         }
-        
         return maxLen;
     }
 }
