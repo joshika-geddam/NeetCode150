@@ -9,11 +9,8 @@ class Solution {
                 map.put(fruits[r],map.getOrDefault(fruits[r],0)+1);
             if(map.size()>k){
                 map.put(fruits[l],map.getOrDefault(fruits[l],0)-1);
-                if(map.containsKey(fruits[l])){
-                    int value=map.get(fruits[l]);
-                    if(value==0){
+                if(map.get(fruits[l])==0){
                         map.remove(fruits[l]);
-                    }
                 }
                 l++;
             }
