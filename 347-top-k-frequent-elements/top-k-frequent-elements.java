@@ -14,7 +14,7 @@ class Solution {
         }
         int[] result=new int[k];
         int count=0;
-        for(int i=bucket.length-1;i>=0 && count<k;i--){
+        for(int i=bucket.length-1;i>0 && count<k;i--){
             if(bucket[i]!=null){
                 for(int num:bucket[i]){
                     result[count++]=num;
