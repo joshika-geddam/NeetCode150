@@ -3,20 +3,20 @@ class Solution {
         int minSpeed=1;
         int maxSpeed=0;
         for(int pile:piles){
-            maxSpeed=Math.max(pile,maxSpeed);
+            maxSpeed=Math.max(maxSpeed,pile);
         }
         while(minSpeed<maxSpeed){
             int mid=minSpeed+(maxSpeed-minSpeed)/2;
-            if(canEat(piles,h,mid)){
+            if(canEat(piles,mid,h)){
                 maxSpeed=mid;
             }
             else{
                 minSpeed=mid+1;
             }
         }
-        return minSpeed; 
+        return minSpeed;
     }
-    public boolean canEat(int[] piles,int h,int mid){
+    public boolean canEat(int[] piles,int mid,int h){
         int hours=0;
         for(int pile:piles){
             hours+=(int)Math.ceil((double)pile/mid);
