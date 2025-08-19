@@ -5,17 +5,16 @@ class Solution {
         for(int i=0;i<nums.length;i++){
             map.put(nums[i],false);
         }
-        for(int i=0;i<nums.length;i++){
-            int num=nums[i];
+        for(int num:nums){
             int current=1;
             int nextNum=num+1;
-            while(map.containsKey(nextNum)&& !map.get(nextNum)){
+            while(map.containsKey(nextNum) && map.get(nextNum)==false){
                 current++;
                 map.put(nextNum,true);
                 nextNum++;
             }
             int prevNum=num-1;
-             while(map.containsKey(prevNum)&& !map.get(prevNum)){
+            while(map.containsKey(prevNum) && map.get(prevNum)==false){
                 current++;
                 map.put(prevNum,true);
                 prevNum--;
