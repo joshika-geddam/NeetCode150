@@ -34,13 +34,13 @@ class Solution {
         }
         current=head;
         Node newHead=current.next;
-        Node newCurr=newHead;
+        Node newCurrent=newHead;
         while(current!=null){
-            current.next=newCurr.next;
+            current.next=newCurrent.next;
             current=current.next;
             if(current!=null){
-                newCurr.next=current.next;
-                newCurr=newCurr.next;
+                newCurrent.next=current.next;
+                newCurrent=newCurrent.next;
             }
         }
         return newHead;
