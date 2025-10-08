@@ -6,16 +6,15 @@ class Solution {
             cars[i][0]=position[i];
             cars[i][1]=(double)(target-position[i])/speed[i];
         }
-        Arrays.sort(cars,(a,b)->Double.compare(b[0],a[0]));
         int count=0;
-        double prev=0.0;
+        double prev=0;
+        Arrays.sort(cars,(a,b)->Double.compare(b[0],a[0]));
         for(double[] car:cars){
-            if(prev<car[1]){
+            if(car[1]>prev){
                 prev=car[1];
                 count++;
             }
         }
         return count;
-        
     }
 }
