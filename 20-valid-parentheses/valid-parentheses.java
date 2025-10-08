@@ -5,16 +5,17 @@ class Solution {
             if(c=='('){
                 stack.push(')');
             }
-            else if(c=='['){
-                stack.push(']');
-            }
             else if(c=='{'){
                 stack.push('}');
             }
-            else if(stack.isEmpty()||stack.pop()!=c){
+            else if(c=='['){
+                stack.push(']');
+            }
+            else if(stack.isEmpty() || stack.pop()!=c){
                 return false;
             }
         }
         return stack.isEmpty();
+        
     }
 }
